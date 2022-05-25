@@ -1,0 +1,9 @@
+name: TheMovieApp
+options:
+  bundleIdPrefix: com.guilherme.TheMovieApp
+targets:
+  TheMovieApp:
+    type: application
+    platform: iOS
+    deploymentTarget: "12.4"
+    sources: [TheMovieApp]
