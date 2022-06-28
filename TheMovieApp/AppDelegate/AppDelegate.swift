@@ -13,10 +13,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        let presenter = HomePresenter()
+        let worker = HomeWorker()
+        let interactor = HomeInteractor(presenter: presenter, worker: worker)
+        let viewController = HomeViewController(interactor: interactor)
+        presenter.view = viewController
         window = UIWindow()
-        window?.rootViewController = ViewController()
+        window?.rootViewController = viewController
         window?.makeKeyAndVisible()
-        
         return true
     }
     
