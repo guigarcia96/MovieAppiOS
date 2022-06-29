@@ -25,12 +25,13 @@ public class HomeInteractor {
 
 extension HomeInteractor: HomeBusinessLogic {
     func fetchGenres() {
+        presenter.presenteGenres(response: .loading)
         worker.loadGenres { [weak self] genres in
             switch genres {
             case .success(let genres):
-                self?.presenter.presenteGenres(response: .init(genres: genres))
+                self?.presenter.presenteGenres(response: .loaded(.init(genres: genres)))
             case .failure(let error):
-                print(error.localizedDescription)
+                self?.presenter.presenteGenres(response: .error(error))
             }
         }
     }

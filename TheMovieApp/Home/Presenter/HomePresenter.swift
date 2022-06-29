@@ -16,7 +16,14 @@ public class HomePresenter: HomePresenterPresentationLogic {
     weak var view: HomeViewDisplayLogic?
     
     func presenteGenres(response: HomeUseCases.HomeView.Response) {
-        view?.displayCategories(viewModel: .init(genres: response.genres))
+        switch response {
+        case .loading:
+            view?.displayCategories(viewModel: .loading)
+        case .loaded(let data):
+            view?.displayCategories(viewModel: .loaded(.init(genres: data.genres)))
+        case .error(_):
+            view?.displayCategories(viewModel: .error)
+        }
     }
     
 }

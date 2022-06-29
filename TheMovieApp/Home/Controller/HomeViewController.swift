@@ -16,11 +16,7 @@ class HomeViewController: UIViewController {
     let customView: HomeViewDisplay
     let interactor: HomeBusinessLogic
     
-    private var viewModel: HomeUseCases.HomeView.ViewModel? {
-        didSet {
-            customView.reloadData()
-        }
-    }
+    private var viewModel: HomeUseCases.HomeView.ViewModel.Data?
     
     init(customView: HomeViewDisplay = HomeView(), interactor: HomeBusinessLogic) {
         self.customView = customView
@@ -58,7 +54,15 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: HomeViewDisplayLogic {
     func displayCategories(viewModel: HomeUseCases.HomeView.ViewModel) {
-        self.viewModel = viewModel
+        switch viewModel {
+        case .loading:
+            customView.transition(toState: .loading)
+        case .loaded(let data):
+            self.viewModel = data
+            customView.transition(toState: .content)
+        case .error:
+            customView.transition(toState: .empty, animated: true)
+        }
     }
     
 }

@@ -8,13 +8,29 @@
 import UIKit
 import SnapKit
 
-protocol HomeViewDisplay: UIView {
+protocol HomeViewDisplay: UIView, StatefulObject {
     var tableViewDelegate: UITableViewDelegate? { get set }
     var tableViewDataSource: UITableViewDataSource? { get set }
     func reloadData()
 }
 
 class HomeView: UIView, HomeViewDisplay {
+    
+    func prepareEmptyState() {
+        //TODO
+    }
+    
+    var currentState: State?
+    
+    func adapt(toState state: State, animated: Bool) {
+        switch state {
+        case .content:
+            tableView.reloadData()
+        case .loading, .empty:
+            break
+        }
+    }
+    
     var tableViewDelegate: UITableViewDelegate? {
         get {
             tableView.delegate
