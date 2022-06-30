@@ -11,13 +11,25 @@ enum HomeUseCases {
 
     enum HomeView {
         struct Request {}
+        
+        enum Response {
+            case loading
+            case loaded(Data)
+            case error(Error)
 
-        struct Response: Equatable {
-            let genres: [Genre]
+            struct Data {
+                let genres: [Genre]
+            }
         }
 
-        struct ViewModel: Equatable {
-            let genres: [Genre]
+        enum ViewModel {
+            case loading
+            case loaded(Data)
+            case error(EmptyState)
+
+            struct Data {
+                let genres: [Genre]
+            }
         }
     }
 
