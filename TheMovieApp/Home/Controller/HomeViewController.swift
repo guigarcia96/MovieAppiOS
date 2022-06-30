@@ -5,7 +5,7 @@
 //  Created by guilherme.garcia on 25/05/22.
 //
 
-protocol HomeViewDisplayLogic: AnyObject {
+protocol HomeViewDisplayLogic: EmptyStateViewDelegate {
     func displayCategories(viewModel: HomeUseCases.HomeView.ViewModel)
 }
 
@@ -53,6 +53,11 @@ class HomeViewController: UIViewController {
 // MARK: HomeDisplayLogic
 
 extension HomeViewController: HomeViewDisplayLogic {
+    
+    func emptyStateViewButtonTouched(forState emptyState: EmptyState) {
+        fetchGenres()
+    }
+    
     func displayCategories(viewModel: HomeUseCases.HomeView.ViewModel) {
         switch viewModel {
         case .loading:
@@ -60,12 +65,13 @@ extension HomeViewController: HomeViewDisplayLogic {
         case .loaded(let data):
             self.viewModel = data
             customView.transition(toState: .content)
-        case .error:
-            customView.transition(toState: .empty, animated: true)
+        case .error(let emptyState):
+            customView.transition(toState: .empty(emptyState), animated: true)
         }
     }
     
 }
+
 
 // MARK: UITableViewDelegate
 extension HomeViewController: UITableViewDelegate {

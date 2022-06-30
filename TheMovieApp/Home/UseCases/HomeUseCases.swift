@@ -25,7 +25,7 @@ enum HomeUseCases {
         enum ViewModel {
             case loading
             case loaded(Data)
-            case error
+            case error(EmptyState)
 
             struct Data {
                 let genres: [Genre]

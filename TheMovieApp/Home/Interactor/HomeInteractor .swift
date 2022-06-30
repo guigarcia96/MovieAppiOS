@@ -26,8 +26,8 @@ public class HomeInteractor {
 extension HomeInteractor: HomeBusinessLogic {
     func fetchGenres() {
         presenter.presenteGenres(response: .loading)
-        worker.loadGenres { [weak self] genres in
-            switch genres {
+        worker.loadGenres { [weak self] result in
+            switch result {
             case .success(let genres):
                 self?.presenter.presenteGenres(response: .loaded(.init(genres: genres)))
             case .failure(let error):

@@ -15,11 +15,7 @@ protocol HomeViewDisplay: UIView, StatefulObject {
 }
 
 class HomeView: UIView, HomeViewDisplay {
-    
-    func prepareEmptyState() {
-        //TODO
-    }
-    
+
     var currentState: State?
     
     func adapt(toState state: State, animated: Bool) {

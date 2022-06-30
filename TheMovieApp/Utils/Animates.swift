@@ -48,6 +48,7 @@ extension AnimatesAlpha where Self: UIView {
             prepareToHide()
             completion?()
         }
+        
         layer.removeAllAnimations()
 
         guard animated else {
