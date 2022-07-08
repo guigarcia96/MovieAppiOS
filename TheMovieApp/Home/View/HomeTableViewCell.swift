@@ -27,7 +27,7 @@ final class HomeTableViewCell: UITableViewCell {
     
     private let genreLabel: UILabel = {
         let label = UILabel()
-        label.font = .fontRoboto(size: 18, style: .bold)
+        label.font = FontFamily.Roboto.bold.font(size: 18.0)
         label.textColor = .white
         return label
     }()
@@ -90,6 +90,6 @@ extension HomeTableViewCell {
     
     func display(viewModel: ViewModel) {
         genreLabel.text = viewModel.genreName
-        genreImage.image = UIImage(named: "popcorn")
+        genreImage.image = Asset.popcorn.image
     }
 }
