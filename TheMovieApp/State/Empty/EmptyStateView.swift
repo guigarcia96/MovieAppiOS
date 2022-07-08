@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Alamofire
 
 public struct EmptyState: Equatable {
     public let image: UIImage?
@@ -25,7 +24,7 @@ public struct EmptyState: Equatable {
     
     public static func with(error: Error?, buttonDelegate: EmptyStateViewDelegate?) -> EmptyState {
         let title = "Algo Errado"
-        let image = UIImage(named: "network")
+        let image = Asset.network.image
         let subtitle = "Desculpe, ocorreu um erro, por favor, tente novamente"
         
         return EmptyState(
@@ -76,7 +75,7 @@ public final class EmptyStateView: UIView {
 
     private let nameLabel: UILabel = {
         let titleLabel = UILabel()
-        titleLabel.font = .fontRoboto(size: 16, style: .regular)
+        titleLabel.font = FontFamily.Roboto.regular.font(size: 16)
         titleLabel.textColor = .lightGray
         titleLabel.textAlignment = .center
         titleLabel.lineBreakMode = .byWordWrapping
@@ -86,7 +85,7 @@ public final class EmptyStateView: UIView {
 
     private let subtitleLabel: UILabel = {
         let detailLabel = UILabel()
-        detailLabel.font = .fontRoboto(size: 14, style: .regular)
+        detailLabel.font = FontFamily.Roboto.thin.font(size: 14)
         detailLabel.textColor = .systemGray
         detailLabel.textAlignment = .center
         detailLabel.lineBreakMode = .byWordWrapping

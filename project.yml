@@ -1,20 +1,13 @@
 name: TheMovieApp
 options:
   bundleIdPrefix: com.guilherme.TheMovieApp
-packages:
-  SnapKit:
-    github: SnapKit/SnapKit.git
-    from: 5.0.1
-  Alamofire: 
-    github: Alamofire/Alamofire.git
-    from: 5.6.1
 
 targets:
   TheMovieApp:
+    preBuildScripts:
+      - path: swiftgen.sh
+        name: Swiftgen
     type: application
     platform: iOS
     deploymentTarget: "14.0"
     sources: [TheMovieApp]
-    dependencies:
-      - package: SnapKit
-      - package: Alamofire
