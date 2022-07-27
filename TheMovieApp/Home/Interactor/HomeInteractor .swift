@@ -8,7 +8,7 @@
 import Foundation
 
 protocol HomeBusinessLogic {
-    func fetchGenres()
+    func fetchGenres(request: HomeUseCases.HomeView.Request)
 }
 
 public class HomeInteractor {
@@ -24,14 +24,14 @@ public class HomeInteractor {
 }
 
 extension HomeInteractor: HomeBusinessLogic {
-    func fetchGenres() {
-        presenter.presenteGenres(response: .loading)
+    func fetchGenres(request: HomeUseCases.HomeView.Request) {
+        presenter.presentGenres(response: .loading)
         worker.loadGenres { [weak self] result in
             switch result {
             case .success(let genres):
-                self?.presenter.presenteGenres(response: .loaded(.init(genres: genres)))
+                self?.presenter.presentGenres(response: .loaded(.init(genres: genres)))
             case .failure(let error):
-                self?.presenter.presenteGenres(response: .error(error))
+                self?.presenter.presentGenres(response: .error(error))
             }
         }
     }
