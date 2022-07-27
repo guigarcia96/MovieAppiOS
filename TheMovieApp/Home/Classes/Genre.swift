@@ -9,8 +9,8 @@ import Foundation
 
 // MARK: - Genre
 public struct Genre: Codable {
-    let id: Int
-    let name: String
+    public let id: Int
+    public let name: String
 }
 
 extension Genre: Equatable {
@@ -21,5 +21,5 @@ extension Genre: Equatable {
 
 // MARK: - GenreResult
 public struct GenreResult: Codable {
-    let genres: [Genre]
+    public let genres: [Genre]
 }

@@ -11,3 +11,17 @@ targets:
     platform: iOS
     deploymentTarget: "14.0"
     sources: [TheMovieApp]
+    scheme:
+      testTargets:
+        - TheMovieAppTests
+      gatherCoverageData: true
+      coverageTargets:
+         - TheMovieApp
+  TheMovieAppTests:
+    type: bundle.unit-test
+    deploymentTarget: "14.0"
+    platform: iOS
+    sources:
+      - path: TheMovieAppTests
+    dependencies:
+      - target: TheMovieApp

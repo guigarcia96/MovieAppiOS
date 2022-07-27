@@ -45,7 +45,7 @@ class HomeViewController: UIViewController {
     }
     
     private func fetchGenres() {
-        interactor.fetchGenres()
+        interactor.fetchGenres(request: .init())
     }
     
 }

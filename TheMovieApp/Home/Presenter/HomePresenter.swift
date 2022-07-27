@@ -8,14 +8,14 @@
 import Foundation
 
 protocol HomePresenterPresentationLogic: AnyObject {
-    func presenteGenres(response: HomeUseCases.HomeView.Response)
+    func presentGenres(response: HomeUseCases.HomeView.Response)
 }
 
 
 public class HomePresenter: HomePresenterPresentationLogic {
     weak var view: HomeViewDisplayLogic?
     
-    func presenteGenres(response: HomeUseCases.HomeView.Response) {
+    func presentGenres(response: HomeUseCases.HomeView.Response) {
         switch response {
         case .loading:
             view?.displayCategories(viewModel: .loading)

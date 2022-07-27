@@ -14,7 +14,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let presenter = HomePresenter()
-        let worker = HomeWorker()
+        let genresRepository = GenresRepository()
+        let worker = HomeWorker(repository: genresRepository)
         let interactor = HomeInteractor(presenter: presenter, worker: worker)
         let viewController = HomeViewController(interactor: interactor)
         presenter.view = viewController

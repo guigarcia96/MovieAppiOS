@@ -11,7 +11,6 @@ import SnapKit
 protocol HomeViewDisplay: UIView, StatefulObject {
     var tableViewDelegate: UITableViewDelegate? { get set }
     var tableViewDataSource: UITableViewDataSource? { get set }
-    func reloadData()
 }
 
 class HomeView: UIView, HomeViewDisplay {
@@ -21,10 +20,11 @@ class HomeView: UIView, HomeViewDisplay {
     func adapt(toState state: State, animated: Bool) {
         switch state {
         case .content:
-            tableView.reloadData()
+            reloadData()
         case .loading, .empty:
             break
         }
+        currentState = state
     }
     
     var tableViewDelegate: UITableViewDelegate? {
@@ -43,7 +43,7 @@ class HomeView: UIView, HomeViewDisplay {
         }
     }
     
-    func reloadData() {
+    private func reloadData() {
         tableView.reloadData()
     }
 
