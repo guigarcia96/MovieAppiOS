@@ -19,7 +19,7 @@ public final class HomeViewControllerSpy: HomeViewDisplayLogic {
     private (set) var emptyStateViewButtonTouchedCalled: Bool = false
     private (set) var emptyStateViewButtonTouchedPassed: EmptyState?
     public func emptyStateViewButtonTouched(forState emptyState: EmptyState) {
-        emptyStateViewButtonTouchedCalled = true
+        emptyStateViewButtonTouchedCalled = false
         emptyStateViewButtonTouchedPassed = emptyState
     }
     
