@@ -27,7 +27,6 @@ workflows:
     - recreate-user-schemes@1:
         inputs:
         - project_path: $BITRISE_PROJECT_PATH
-    - cocoapods-install@2: {}
     - xcode-test@4:
         inputs:
         - project_path: $BITRISE_PROJECT_PATH
@@ -83,7 +82,7 @@ workflows:
 
             cd ..
 
-            xcodegen generate
+            make run
 
 
             # or run a script from your repository, like:
@@ -93,7 +92,6 @@ workflows:
             # not just bash, e.g.:
 
             # ruby ./path/to/script.rb
-    - cocoapods-install@2: {}
     - recreate-user-schemes@1:
         inputs:
         - project_path: $BITRISE_PROJECT_PATH

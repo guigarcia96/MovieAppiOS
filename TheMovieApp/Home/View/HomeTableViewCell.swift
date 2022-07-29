@@ -12,7 +12,7 @@ final class HomeTableViewCell: UITableViewCell {
     
     private let genreView: UIView = {
         let view = UIView()
-        view.backgroundColor = .random
+        view.backgroundColor = .black
         view.clipsToBounds = true
         view.layer.cornerRadius = 40
         view.layer.borderWidth = 0.6

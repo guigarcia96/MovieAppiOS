@@ -48,7 +48,7 @@ class HomePresenterTests: XCTestCase {
         
         sut.presentGenres(response: response)
         
-        let expectedResult: HomeUseCases.HomeView.ViewModel = .error(.with(error: error, buttonDelegate: view))
+        let expectedResult: HomeUseCases.HomeView.ViewModel = .error(.withError(and: view))
         XCTAssertEqual(expectedResult, view.displayCategoriesPassed)
         XCTAssertTrue(view.displayCategoriesCalled)
         
