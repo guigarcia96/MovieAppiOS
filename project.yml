@@ -14,6 +14,7 @@ targets:
     scheme:
       testTargets:
         - TheMovieAppTests
+        - TheMovieAppUITests
       gatherCoverageData: true
       coverageTargets:
          - TheMovieApp
@@ -23,5 +24,13 @@ targets:
     platform: iOS
     sources:
       - path: TheMovieAppTests
+    dependencies:
+      - target: TheMovieApp
+  TheMovieAppUITests:
+    type: bundle.unit-test
+    deploymentTarget: "14.0"
+    platform: iOS
+    sources:
+      - path: TheMovieAppUITests
     dependencies:
       - target: TheMovieApp

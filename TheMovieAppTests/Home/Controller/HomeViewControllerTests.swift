@@ -15,8 +15,7 @@ class HomeViewControllerTests: XCTestCase {
     private lazy var sut = HomeViewController(customView: view, interactor: interactor)
     
     func test_emptyStateViewButtonTouched_shouldCallFetchGenres() {
-        let error = createMockError()
-        let emptyStateWithError: EmptyState = .with(error: error, buttonDelegate: sut)
+        let emptyStateWithError: EmptyState = .withError(and: sut)
         
         sut.emptyStateViewButtonTouched(forState: emptyStateWithError)
         
@@ -33,8 +32,7 @@ class HomeViewControllerTests: XCTestCase {
     }
     
     func test_displayCategories_shouldCallAdaptAndAdaptBeCorretWhenIsError() {
-        let error = createMockError()
-        let emptyStateWithError: EmptyState = .with(error: error, buttonDelegate: sut)
+        let emptyStateWithError: EmptyState = .withError(and: sut)
         let viewModel: HomeUseCases.HomeView.ViewModel = .error(emptyStateWithError)
         
         sut.displayCategories(viewModel: viewModel)
@@ -79,12 +77,6 @@ class HomeViewControllerTests: XCTestCase {
         sut.viewWillAppear(true)
         XCTAssertTrue(interactor.fetchGenresCalled)
     }
-    
-    func createMockError() -> Error {
-        let error = NSError(domain: "", code: 401, userInfo: [ NSLocalizedDescriptionKey: "Invalid access token"])
-        return error
-    }
-
 }
 
 
