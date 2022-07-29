@@ -22,7 +22,7 @@ public struct EmptyState: Equatable {
         self.buttonDelegate = buttonDelegate
     }
     
-    public static func with(error: Error?, buttonDelegate: EmptyStateViewDelegate?) -> EmptyState {
+    public static func withError(and buttonDelegate: EmptyStateViewDelegate?) -> EmptyState {
         let title = "Algo Errado"
         let image = Asset.network.image
         let subtitle = "Desculpe, ocorreu um erro, por favor, tente novamente"
@@ -31,8 +31,7 @@ public struct EmptyState: Equatable {
             image: image,
             title: title,
             subtitle: subtitle,
-            buttonTitle: "Tente Novamente",
-            buttonDelegate: buttonDelegate
+            buttonTitle: "Tente Novamente"
         )
     }
     

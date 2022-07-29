@@ -21,8 +21,8 @@ public class HomePresenter: HomePresenterPresentationLogic {
             view?.displayCategories(viewModel: .loading)
         case .loaded(let data):
             view?.displayCategories(viewModel: .loaded(.init(genres: data.genres)))
-        case .error(let error):
-            let emptyState = EmptyState.with(error: error, buttonDelegate: view)
+        case .error(_):
+            let emptyState = EmptyState.withError(and: view)
             view?.displayCategories(viewModel: .error(emptyState))
         }
     }
