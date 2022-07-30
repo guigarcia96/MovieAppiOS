@@ -20,7 +20,7 @@ class HomeTableViewCellSnapshotTests: XCTestCase {
 extension HomeTableViewCellSnapshotTests {
     private func assertSnapshot(from display: String) {
         let sut = makeSut(with: display)
-        let result = verifySnapshot(matching: sut, as: .image, named: "Default", testName: "HomeTableViewCell")
+        let result = verifySnapshot(matching: sut, as: .image, named: "test_HomeTableViewCell_ShouldReturnCorrectly")
         XCTAssertNil(result)
     }
 
