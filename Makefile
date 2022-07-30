@@ -5,6 +5,7 @@ run:
 	@echo "Generating Project"
 	xcodegen generate 
 	@echo "Downloading Cocoapods"
-	pod install --repo-update
+	pod repo update
+	pod install
 	@echo "Open Project"
 	open TheMovieApp.xcworkspace

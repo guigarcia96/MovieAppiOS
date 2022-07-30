@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (5.6.1)
+  - Alamofire (5.6.2)
   - SnapKit (5.6.0)
   - SnapshotTesting (1.8.2)
   - SwiftGen (6.5.1)
@@ -18,7 +18,7 @@ SPEC REPOS:
     - SwiftGen
 
 SPEC CHECKSUMS:
-  Alamofire: 87bd8c952f9a4454320fce00d9cc3de57bcadaf5
+  Alamofire: d368e1ff8a298e6dde360e35a3e68e6c610e7204
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SnapshotTesting: 38947050d13960d57a4a9c166fcf51bca7d56970
   SwiftGen: a6d22010845f08fe18fbdf3a07a8e380fd22e0ea

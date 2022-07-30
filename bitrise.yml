@@ -23,7 +23,6 @@ workflows:
     steps:
     - activate-ssh-key@4: {}
     - git-clone@6: {}
-    - cache-pull@2: {}
     - recreate-user-schemes@1:
         inputs:
         - project_path: $BITRISE_PROJECT_PATH
@@ -95,7 +94,6 @@ workflows:
     - recreate-user-schemes@1:
         inputs:
         - project_path: $BITRISE_PROJECT_PATH
-    - cache-pull@2: {}
     - xcode-test@4:
         inputs:
         - project_path: $BITRISE_PROJECT_PATH
