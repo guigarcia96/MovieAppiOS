@@ -11,7 +11,7 @@ import XCTest
 
 class HomeTableViewCellSnapshotTests: XCTestCase {
 
-    func test_HomeView_ShouldReturnCorrectly() {
+    func test_HomeTableViewCell_ShouldReturnCorrectly() {
         assertSnapshot(from: "Comedy")
     }
 

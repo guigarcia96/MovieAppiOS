@@ -23,7 +23,7 @@ class HomeViewControllerSnapshotTests: XCTestCase {
 extension HomeViewControllerSnapshotTests {
     private func assertSnapshot(for state: State, and imageName: String) {
         let sut = makeSut(for: state)
-        let result = verifySnapshot(matching: sut, as: .image(on: .iPhoneX), named: imageName, testName: "HomeViewControllerTests")
+        let result = verifySnapshot(matching: sut, as: .image(on: .iPhone8Plus), named: imageName, testName: "HomeViewControllerTests")
         XCTAssertNil(result)
     }
 
