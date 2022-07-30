@@ -11,23 +11,19 @@ import SnapshotTesting
 class HomeViewControllerSnapshotTests: XCTestCase {
 
     func test_HomeViewControllerSuccess() {
-        assertSnapshot(for: .content, and: "test_HomeViewControllerSuccess")
+        let sut = makeSut(for: .content)
+        assertSnapshot(matching: sut, as: .image)
+        
     }
     
     func test_HomeViewControllerFailure() {
-        assertSnapshot(for: .empty(.withError(and: .none)), and: "test_HomeViewControllerFailure")
+        let sut = makeSut(for: .empty(.withError(and: .none)))
+        assertSnapshot(matching: sut, as: .image)
     }
     
 }
 
 extension HomeViewControllerSnapshotTests {
-    private func assertSnapshot(for state: State, and imageName: String) {
-        let sut = makeSut(for: state)
-        let named = imageName
-        let result = verifySnapshot(matching: sut, as: .image(on: .iPhone8Plus), named: named)
-        XCTAssertNil(result)
-    }
-
     private func makeSut(for state: State) -> UIViewController {
         let presenter = HomePresenter()
         let worker = HomeWorkerSpy()

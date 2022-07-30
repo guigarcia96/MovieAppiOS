@@ -12,18 +12,13 @@ import XCTest
 class HomeTableViewCellSnapshotTests: XCTestCase {
 
     func test_HomeTableViewCell_ShouldReturnCorrectly() {
-        assertSnapshot(from: "Comedy")
+        let sut = makeSut(with: "Comedy")
+        assertSnapshot(matching: sut, as: .image)
     }
 
 }
 
 extension HomeTableViewCellSnapshotTests {
-    private func assertSnapshot(from display: String) {
-        let sut = makeSut(with: display)
-        let result = verifySnapshot(matching: sut, as: .image, named: "test_HomeTableViewCell_ShouldReturnCorrectly")
-        XCTAssertNil(result)
-    }
-
     private func makeSut(with name: String) -> UIView {
         let cell = HomeTableViewCell(frame: .init(x: 0, y: 0, width: 30, height: 200))
         cell.contentView.translatesAutoresizingMaskIntoConstraints = false
