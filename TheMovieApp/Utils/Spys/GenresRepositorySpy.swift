@@ -8,7 +8,7 @@
 import Foundation
 
 public final class GenresRepositorySpy: GenresRepositoryProtocol {
-    
+
     private (set) var getGenresCalled = false
     var contentToBeReturned: GenresRequestResult?
     func getGenres(completion: @escaping GenresRequestCompletion) {

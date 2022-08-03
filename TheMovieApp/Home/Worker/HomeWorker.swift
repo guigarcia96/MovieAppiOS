@@ -16,13 +16,13 @@ protocol HomeWorkerProtocol {
 }
 
 final class HomeWorker: HomeWorkerProtocol {
-    
+
     let repository: GenresRepositoryProtocol
-    
+
     init(repository: GenresRepositoryProtocol) {
         self.repository = repository
     }
-    
+
     func loadGenres(completion: @escaping GenresRequestCompletion) {
         repository.getGenres { result in
             switch result {
@@ -33,6 +33,5 @@ final class HomeWorker: HomeWorkerProtocol {
             }
         }
     }
-    
-    
+
 }

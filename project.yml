@@ -7,6 +7,9 @@ targets:
     preBuildScripts:
       - path: swiftgen.sh
         name: Swiftgen
+    postBuildScripts:
+      - path: swiftlint.sh
+        name: SwiftLint
     type: application
     platform: iOS
     deploymentTarget: "14.0"

@@ -11,20 +11,19 @@ protocol HomePresenterPresentationLogic: AnyObject {
     func presentGenres(response: HomeUseCases.HomeView.Response)
 }
 
-
 public class HomePresenter: HomePresenterPresentationLogic {
     weak var view: HomeViewDisplayLogic?
-    
+
     func presentGenres(response: HomeUseCases.HomeView.Response) {
         switch response {
         case .loading:
             view?.displayCategories(viewModel: .loading)
         case .loaded(let data):
             view?.displayCategories(viewModel: .loaded(.init(genres: data.genres)))
-        case .error(_):
+        case .error:
             let emptyState = EmptyState.withError(and: view)
             view?.displayCategories(viewModel: .error(emptyState))
         }
     }
-    
+
 }

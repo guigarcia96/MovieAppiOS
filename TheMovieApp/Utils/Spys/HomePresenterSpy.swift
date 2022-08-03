@@ -7,9 +7,8 @@
 
 import Foundation
 
-
 public final class HomePresenterSpy: HomePresenterPresentationLogic {
-    
+
     private (set) var presentGenresCalled: Bool = false
     private (set) var presentGenresPassed: HomeUseCases.HomeView.Response?
     func presentGenres(response: HomeUseCases.HomeView.Response) {

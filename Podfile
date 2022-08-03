@@ -14,6 +14,7 @@ target 'TheMovieApp' do
   pod 'SwiftGen', '~> 6.0'
   pod 'SnapKit', '~> 5.6.0'
   pod 'Alamofire', '~> 5.6.0'
+  pod 'SwiftLint', '~> 0.48.0 '
 
 end
 

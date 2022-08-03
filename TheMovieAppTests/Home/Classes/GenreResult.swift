@@ -16,7 +16,7 @@ class GenreResultTest: XCTestCase {
         let genresArray: GenreResult = .init(genres: [.init(id: 01, name: "Action"), .init(id: 02, name: "Comedy")])
         XCTAssertEqual(genresArray, genres)
     }
-    
+
     public func test_genre_shouldNotBeCorrect() {
         let genresArray: GenreResult = .init(genres: [.init(id: 02, name: "Action"), .init(id: 03, name: "Comedy")])
         XCTAssertNotEqual(genresArray, genres)

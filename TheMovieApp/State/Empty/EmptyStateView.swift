@@ -13,7 +13,7 @@ public struct EmptyState: Equatable {
     public let subtitle: String
     public let buttonTitle: String?
     public weak var buttonDelegate: EmptyStateViewDelegate?
-    
+
     public init(image: UIImage?, title: String, subtitle: String, buttonTitle: String? = nil, buttonDelegate: EmptyStateViewDelegate? = nil) {
         self.image = image
         self.title = title
@@ -21,12 +21,12 @@ public struct EmptyState: Equatable {
         self.buttonTitle = buttonTitle
         self.buttonDelegate = buttonDelegate
     }
-    
+
     public static func withError(and buttonDelegate: EmptyStateViewDelegate?) -> EmptyState {
         let title = "Algo Errado"
         let image = Asset.network.image
         let subtitle = "Desculpe, ocorreu um erro, por favor, tente novamente"
-        
+
         return EmptyState(
             image: image,
             title: title,
@@ -34,7 +34,7 @@ public struct EmptyState: Equatable {
             buttonTitle: "Tente Novamente"
         )
     }
-    
+
     public static func == (lhs: EmptyState, rhs: EmptyState) -> Bool {
         lhs.image == rhs.image &&
         lhs.title == rhs.title &&
@@ -117,14 +117,14 @@ public final class EmptyStateView: UIView {
 
     private func constrainStack() {
         addSubview(stackView)
-        
+
         stackView.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(32)
             make.trailing.equalToSuperview().offset(-32)
             make.centerY.equalToSuperview()
             make.centerX.equalToSuperview()
         }
-        
+
         stackView.addArrangedSubview(imageView)
         stackView.addArrangedSubview(contentStackView)
         contentStackView.addArrangedSubview(nameLabel)
@@ -133,7 +133,7 @@ public final class EmptyStateView: UIView {
     }
 
     private func constrainImage() {
-        
+
         imageView.snp.makeConstraints { make in
             make.height.equalTo(65).priority(.low)
             make.width.equalTo(65).priority(.low)
@@ -141,11 +141,11 @@ public final class EmptyStateView: UIView {
     }
 
     private func constrainButton() {
-        
+
         button.snp.makeConstraints { make in
             make.height.equalTo(50)
         }
-        
+
         button.addTarget(self, action: #selector(buttonTouched), for: .touchUpInside)
     }
 
@@ -206,13 +206,12 @@ extension UIView {
             return
         }
         addSubview(view)
-        
+
         view.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-    
+
         view.render(emptyState: emptyState)
         view.show(animated: animated)
     }
 }
-
