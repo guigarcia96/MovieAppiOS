@@ -8,7 +8,7 @@
 import Foundation
 
 public final class HomeWorkerSpy: HomeWorkerProtocol {
-    
+
     private (set) var loadGenresCalled = false
     var contentToBeReturned: GenresRequestResult?
     func loadGenres(completion: @escaping GenresRequestCompletion) {

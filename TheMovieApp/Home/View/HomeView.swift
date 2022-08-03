@@ -16,7 +16,7 @@ protocol HomeViewDisplay: UIView, StatefulObject {
 class HomeView: UIView, HomeViewDisplay {
 
     var currentState: State?
-    
+
     func adapt(toState state: State, animated: Bool) {
         switch state {
         case .content:
@@ -26,7 +26,7 @@ class HomeView: UIView, HomeViewDisplay {
         }
         currentState = state
     }
-    
+
     var tableViewDelegate: UITableViewDelegate? {
         get {
             tableView.delegate
@@ -34,7 +34,7 @@ class HomeView: UIView, HomeViewDisplay {
             tableView.delegate = newValue
         }
     }
-    
+
     var tableViewDataSource: UITableViewDataSource? {
         get {
             tableView.dataSource
@@ -42,7 +42,7 @@ class HomeView: UIView, HomeViewDisplay {
             tableView.dataSource = newValue
         }
     }
-    
+
     private func reloadData() {
         tableView.reloadData()
     }
@@ -58,28 +58,27 @@ class HomeView: UIView, HomeViewDisplay {
         table.register(HomeTableViewCell.self, forCellReuseIdentifier: "homeCell")
         return table
     }()
-    
+
     init() {
         super.init(frame: UIScreen.main.bounds)
         setupView()
     }
 
-    
     private func setupView() {
         addSubview(tableView)
-        
+
         tableView.snp.makeConstraints { make in
             make.leading.equalToSuperview()
             make.top.equalToSuperview()
             make.trailing.equalToSuperview()
             make.bottom.equalToSuperview()
         }
-        
+
     }
-    
+
     @available(*, unavailable)
     required init?(coder aDecoder: NSCoder) {
         nil
     }
-    
+
 }

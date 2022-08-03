@@ -13,14 +13,14 @@ class HomeViewControllerSnapshotTests: XCTestCase {
     func test_HomeViewControllerSuccess() {
         let sut = makeSut(for: .content)
         assertSnapshot(matching: sut, as: .image)
-        
+
     }
-    
+
     func test_HomeViewControllerFailure() {
         let sut = makeSut(for: .empty(.withError(and: .none)))
         assertSnapshot(matching: sut, as: .image)
     }
-    
+
 }
 
 extension HomeViewControllerSnapshotTests {
@@ -34,12 +34,12 @@ extension HomeViewControllerSnapshotTests {
         presenter.view = viewController
         return viewController
     }
-    
+
     func createMockError() -> Error {
         let error = NSError(domain: "", code: 401, userInfo: [ NSLocalizedDescriptionKey: "Invalid access token"])
         return error
     }
-    
+
     func createResult(for state: State) -> GenresRequestResult? {
         let result: GenresRequestResult?
         switch state {
@@ -47,10 +47,9 @@ extension HomeViewControllerSnapshotTests {
             result = nil
         case .content:
             result = .success(GenreResult.fixture().genres)
-        case .empty(_):
+        case .empty:
             result = .failure(createMockError())
         }
         return result
     }
 }
-

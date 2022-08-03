@@ -11,7 +11,7 @@ enum HomeUseCases {
 
     enum HomeView {
         struct Request {}
-        
+
         enum Response {
             case loading
             case loaded(Data)

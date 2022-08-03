@@ -46,13 +46,11 @@ public extension StatefulObject {
         stateView?.hideEmptyStateView(animated: animated)
     }
 
-    
     func prepareContentState(animated: Bool) {
         stateView?.hideLoadingView(animated: animated)
         stateView?.hideEmptyStateView(animated: animated)
     }
 
-    
     func prepareEmptyState(_ emptyState: EmptyState, animated: Bool) {
         stateView?.hideLoadingView(animated: animated)
         stateView?.showEmptyStateView(emptyState, animated: animated)

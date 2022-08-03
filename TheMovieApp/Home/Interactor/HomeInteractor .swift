@@ -12,15 +12,15 @@ protocol HomeBusinessLogic {
 }
 
 public class HomeInteractor {
-    
+
     let presenter: HomePresenterPresentationLogic
     let worker: HomeWorkerProtocol
-    
+
     init(presenter: HomePresenterPresentationLogic, worker: HomeWorkerProtocol) {
         self.presenter = presenter
         self.worker = worker
     }
-    
+
 }
 
 extension HomeInteractor: HomeBusinessLogic {
@@ -35,6 +35,5 @@ extension HomeInteractor: HomeBusinessLogic {
             }
         }
     }
-    
-    
+
 }

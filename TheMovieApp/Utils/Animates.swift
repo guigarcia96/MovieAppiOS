@@ -5,7 +5,6 @@
 //  Created by guilherme.garcia on 29/06/22.
 //
 
-
 import UIKit
 
 public protocol AnimatesAlpha {
@@ -48,7 +47,7 @@ extension AnimatesAlpha where Self: UIView {
             prepareToHide()
             completion?()
         }
-        
+
         layer.removeAllAnimations()
 
         guard animated else {
